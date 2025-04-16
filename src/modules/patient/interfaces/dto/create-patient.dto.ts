@@ -1,4 +1,4 @@
-import { GENDER } from '../../domain/enums/gender-enums';
+import { GENDER } from '../../domain/constants/gender-enums';
 
 export class CreatePatientDto {
   id: string;
@@ -6,4 +6,5 @@ export class CreatePatientDto {
   lastname: string;
   birthDate: Date;
   gender: GENDER;
+  address: string;
 }
