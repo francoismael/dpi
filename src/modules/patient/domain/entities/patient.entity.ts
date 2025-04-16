@@ -52,7 +52,7 @@ export class Patient {
   }
 
   set birthDate(value: Date) {
-    this._birthDate = value;
+    this._birthDate = new Date(value);
   }
 
   get gender(): GENDER {

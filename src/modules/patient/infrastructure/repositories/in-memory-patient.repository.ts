@@ -11,7 +11,10 @@ export class InMemoryPatientRepository implements PatientRepository {
   }
 
   async search(searchTerm: string): Promise<Patient[]> {
-    const lowerTerm = searchTerm.toLowerCase();
+    const trimmedValue = searchTerm.trim();
+    if (!trimmedValue)
+      return [];
+    const lowerTerm = trimmedValue.toLowerCase();
     return this.patients.filter(patient =>
       (patient && patient.name.toLowerCase().includes(lowerTerm)) ||
       (patient && patient.lastname.toLowerCase().includes(lowerTerm))
@@ -22,7 +25,11 @@ export class InMemoryPatientRepository implements PatientRepository {
     const patient = this.patients.filter(patient =>
       patient && patient.id.includes(patient_id)
     )[0];
-
-    return new BasicInformationAboutPatientVO(patient.name, patient.lastname, patient.address,patient.age)
+    return new BasicInformationAboutPatientVO(
+      patient.name,
+      patient.lastname,
+      patient.address,
+      patient.age
+    );
   }
 }

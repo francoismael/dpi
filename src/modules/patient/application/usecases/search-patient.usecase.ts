@@ -14,5 +14,8 @@ export class SearchPatientUseCase {
     private readonly patientRepository: PatientRepository,
   ) {}
 
+  async execute(searchTerm: string){
+    return this.patientRepository.search(searchTerm);
+  }
 
 }
