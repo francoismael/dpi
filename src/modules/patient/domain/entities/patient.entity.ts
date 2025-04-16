@@ -18,6 +18,19 @@ export class Patient {
     this.address = address;
   }
 
+
+  get age(): number {
+    const today = new Date();
+    let age = today.getFullYear() - this.birthDate.getFullYear();
+    const monthDifference = today.getMonth() - this.birthDate.getMonth();
+    if (
+      monthDifference < 0 || (monthDifference === 0 && today.getDate() < this.birthDate.getDate())
+    ) {
+      age--;
+    }
+    return age;
+  }
+
   get id(): string {
     return this._id;
   }

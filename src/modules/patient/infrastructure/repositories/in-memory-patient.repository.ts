@@ -23,6 +23,6 @@ export class InMemoryPatientRepository implements PatientRepository {
       patient && patient.id.includes(patient_id)
     )[0];
 
-    return new BasicInformationAboutPatientVO(patient.name, patient.lastname, patient.address,0)
+    return new BasicInformationAboutPatientVO(patient.name, patient.lastname, patient.address,patient.age)
   }
 }
