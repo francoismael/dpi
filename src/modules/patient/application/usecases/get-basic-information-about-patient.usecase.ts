@@ -1,6 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { PatientRepository } from '../ports/patient.repository.interface';
 import { PATIENT_REPOSITORY } from '../ports/patient.repository.token';
+import { BusinessException } from '../../../../core/exceptions/business.exception';
+import { ErrorCodes } from '../../domain/constants/error-codes';
 
 @Injectable()
 export class GetBasicInformationAboutPatientUseCase {

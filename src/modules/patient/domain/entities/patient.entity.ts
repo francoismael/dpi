@@ -2,7 +2,7 @@ import { GENDER } from '../constants/gender-enums';
 
 export class Patient {
   private _id: string;
-  private _name: string;
+  private _firstname: string;
   private _lastname: string;
   private _birthDate: Date;
   private _gender: GENDER;
@@ -11,7 +11,7 @@ export class Patient {
 
   constructor(id: string, name: string, lastname: string, birthDate: Date, gender: GENDER, address: string) {
     this.id = id;
-    this.name = name;
+    this.firstname = name;
     this.lastname = lastname;
     this.birthDate = birthDate;
     this.gender = gender;
@@ -39,12 +39,12 @@ export class Patient {
     this._id = value;
   }
 
-  get name(): string {
-    return this._name;
+  get firstname(): string {
+    return this._firstname;
   }
 
-  set name(value: string) {
-    this._name = value;
+  set firstname(value: string) {
+    this._firstname = value;
   }
 
   get birthDate(): Date {

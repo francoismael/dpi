@@ -1,23 +1,23 @@
 export class BasicInformationAboutPatientVO{
-  private _name: string;
+  private _firstname: string;
   private _lastname: string;
   private _address: string;
   private _age: number;
 
   constructor(name: string, lastname: string, address: string, age: number) {
-    this.name = name;
+    this.firstname = name;
     this.lastname = lastname;
     this.address = address;
     this.age = age
   }
 
 
-  get name(): string {
-    return this._name;
+  get firstname(): string {
+    return this._firstname;
   }
 
-  set name(value: string) {
-    this._name = value;
+  set firstname(value: string) {
+    this._firstname = value;
   }
 
   get lastname(): string {

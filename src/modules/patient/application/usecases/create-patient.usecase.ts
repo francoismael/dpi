@@ -18,7 +18,7 @@ export class CreatePatientUseCase {
     try {
       const newPatient = new Patient(
         v4(),
-        createPatientDto.name,
+        createPatientDto.firstname,
         createPatientDto.lastname,
         createPatientDto.birthDate,
         createPatientDto.gender,

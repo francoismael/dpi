@@ -1,6 +1,8 @@
 import { PatientRepository } from '../../application/ports/patient.repository.interface';
 import { Patient } from '../../domain/entities/patient.entity';
 import { BasicInformationAboutPatientVO } from '../../domain/value-objects/basic-information-about-patient.vo';
+import { BusinessException } from '../../../../core/exceptions/business.exception';
+import { ErrorCodes } from '../../domain/constants/error-codes';
 
 export class InMemoryPatientRepository implements PatientRepository {
   private patients: Patient[] = [];
@@ -16,20 +18,28 @@ export class InMemoryPatientRepository implements PatientRepository {
       return [];
     const lowerTerm = trimmedValue.toLowerCase();
     return this.patients.filter(patient =>
-      (patient && patient.name.toLowerCase().includes(lowerTerm)) ||
+      (patient && patient.firstname.toLowerCase().includes(lowerTerm)) ||
       (patient && patient.lastname.toLowerCase().includes(lowerTerm))
     );
   }
 
   async getBasicInformationAboutPatient(patient_id: string){
-    const patient = this.patients.filter(patient =>
-      patient && patient.id.includes(patient_id)
-    )[0];
-    return new BasicInformationAboutPatientVO(
-      patient.name,
-      patient.lastname,
-      patient.address,
-      patient.age
-    );
+    try {
+      const patient = this.patients.filter(patient =>
+        patient && patient.id.includes(patient_id)
+      )[0];
+      return new BasicInformationAboutPatientVO(
+        patient.firstname,
+        patient.lastname,
+        patient.address,
+        patient.age
+      );
+    }catch (error){
+      throw new BusinessException(
+        ErrorCodes.PATIENT_NOT_FOUND,
+        `Patient doesn't exist`,
+        [],
+      )
+    }
   }
 }

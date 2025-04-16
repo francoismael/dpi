@@ -1,8 +1,7 @@
 import { GENDER } from '../../domain/constants/gender-enums';
 
 export class CreatePatientDto {
-  id: string;
-  name: string;
+  firstname: string;
   lastname: string;
   birthDate: Date;
   gender: GENDER;
