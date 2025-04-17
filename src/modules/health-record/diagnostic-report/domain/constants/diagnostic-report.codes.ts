@@ -1,0 +1,3 @@
+export enum EncounterErrorCodes {
+  ENCOUNTER_CREATION_ERROR = 'ENCOUNTER_CREATION_ERROR',
+}
