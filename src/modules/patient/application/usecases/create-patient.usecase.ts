@@ -22,7 +22,10 @@ export class CreatePatientUseCase {
         createPatientDto.lastname,
         createPatientDto.birthDate,
         createPatientDto.gender,
-        createPatientDto.address
+        createPatientDto.address,
+        createPatientDto.phone,
+        createPatientDto.mail,
+        createPatientDto.profession
       );
       return this.patientRepository.save(newPatient);
     }catch (error){

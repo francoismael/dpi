@@ -7,17 +7,32 @@ export class Patient {
   private _birthDate: Date;
   private _gender: GENDER;
   private _address: string;
+  private _phone: string;
+  private _email: string;
+  private _profession: string;
 
 
-  constructor(id: string, name: string, lastname: string, birthDate: Date, gender: GENDER, address: string) {
-    this.id = id;
-    this.firstname = name;
-    this.lastname = lastname;
-    this.birthDate = birthDate;
-    this.gender = gender;
-    this.address = address;
+  constructor(
+    id: string,
+    firstname: string,
+    lastname: string,
+    birthDate: Date,
+    gender: GENDER,
+    address: string,
+    phone: string,
+    email: string,
+    profession: string
+  ) {
+      this.id = id;
+      this.firstname = firstname;
+      this.lastname = lastname;
+      this.birthDate = birthDate;
+      this.gender = gender;
+      this.address = address;
+      this.phone = phone;
+      this.email = email;
+      this.profession = profession;
   }
-
 
   get age(): number {
     const today = new Date();
@@ -77,5 +92,29 @@ export class Patient {
 
   set address(value: string) {
     this._address = value;
+  }
+
+  get phone(): string {
+    return this._phone;
+  }
+
+  set phone(value: string) {
+    this._phone = value;
+  }
+
+  get email(): string {
+    return this._email;
+  }
+
+  set email(value: string) {
+    this._email = value;
+  }
+
+  get profession(): string {
+    return this._profession;
+  }
+
+  set profession(value: string) {
+    this._profession = value;
   }
 }
