@@ -20,8 +20,8 @@ export class CreateEncounterUseCase {
         v4(),
         createEncounterDto.patient,
         createEncounterDto.practitioner,
-        createEncounterDto.actualPeriod,
-        createEncounterDto.status
+        createEncounterDto.status,
+        createEncounterDto.createdAt
       );
       return this.encounterRepository.save(encounter);
     }catch (error){

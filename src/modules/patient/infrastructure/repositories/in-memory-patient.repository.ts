@@ -1,8 +1,6 @@
 import { PatientRepository } from '../../application/ports/patient.repository.interface';
 import { Patient } from '../../domain/entities/patient.entity';
 import { BasicInformationAboutPatientVO } from '../../domain/value-objects/basic-information-about-patient.vo';
-import { BusinessException } from '../../../../core/exceptions/business.exception';
-import { ErrorCodes } from '../../domain/constants/error-codes';
 
 export class InMemoryPatientRepository implements PatientRepository {
   private patients: Patient[] = [];

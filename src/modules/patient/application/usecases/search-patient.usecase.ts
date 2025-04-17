@@ -1,9 +1,6 @@
-import {v4} from 'uuid';
 import { Inject, Injectable } from '@nestjs/common';
 import { PatientRepository } from '../ports/patient.repository.interface';
 import { PATIENT_REPOSITORY } from '../ports/patient.repository.token';
-import { CreatePatientDto } from '../../interfaces/dto/create-patient.dto';
-import { Patient } from '../../domain/entities/patient.entity';
 import { BusinessException } from '../../../../core/exceptions/business.exception';
 import { ErrorCodes } from '../../domain/constants/error-codes';
 
@@ -15,7 +12,14 @@ export class SearchPatientUseCase {
   ) {}
 
   async execute(searchTerm: string){
-    return this.patientRepository.search(searchTerm);
+    try {
+      return this.patientRepository.search(searchTerm);
+    }catch (error){
+      throw new BusinessException(
+        ErrorCodes.PATIENT_NOT_FOUND,
+        `Patient doesn't exist`,
+        [],
+      )
+    }
   }
-
 }
