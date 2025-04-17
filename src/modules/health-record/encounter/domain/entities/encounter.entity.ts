@@ -6,15 +6,17 @@ export class Encounter {
   private _patient: string;
   private _practitioner: PractitionerVO;
   private _status: EncounterStatus;
+  private _motif: string;
   private _createdAt:Date;
 
 
-  constructor(id: string, patient: string, practitioner: PractitionerVO, status: EncounterStatus, createdAt: Date) {
+  constructor(id: string, patient: string, practitioner: PractitionerVO, status: EncounterStatus, motif: string, createdAt: Date) {
     this.id = id;
     this.patient = patient;
     this.practitioner = practitioner;
     this.status = status;
     this.createdAt = createdAt;
+    this.motif = motif;
   }
 
   get id(): string {
@@ -55,5 +57,14 @@ export class Encounter {
 
   set createdAt(value: Date) {
     this._createdAt = new Date(value);
+  }
+
+
+  get motif(): string {
+    return this._motif;
+  }
+
+  set motif(value: string) {
+    this._motif = value;
   }
 }
