@@ -21,6 +21,7 @@ export class CreateEncounterUseCase {
         createEncounterDto.patient,
         createEncounterDto.practitioner,
         createEncounterDto.status,
+        createEncounterDto.motif,
         createEncounterDto.createdAt
       );
       return this.encounterRepository.save(encounter);

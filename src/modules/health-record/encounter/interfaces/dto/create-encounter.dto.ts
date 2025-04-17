@@ -5,5 +5,6 @@ export class CreateEncounterDto {
   patient: string;
   practitioner: PractitionerVO;
   status: EncounterStatus;
+  motif: string;
   createdAt:Date;
 }
