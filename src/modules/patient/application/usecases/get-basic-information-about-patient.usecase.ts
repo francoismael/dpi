@@ -12,6 +12,14 @@ export class GetBasicInformationAboutPatientUseCase {
   ) {}
 
   async execute(patient_id: string){
-    return this.patientRepository.getBasicInformationAboutPatient(patient_id);
+    try {
+      return this.patientRepository.getBasicInformationAboutPatient(patient_id);
+    }catch (error){
+      throw new BusinessException(
+        ErrorCodes.PATIENT_NOT_FOUND,
+        `Patient doesn't exist`,
+        [],
+      )
+    }
   }
 }

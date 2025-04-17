@@ -24,22 +24,14 @@ export class InMemoryPatientRepository implements PatientRepository {
   }
 
   async getBasicInformationAboutPatient(patient_id: string){
-    try {
-      const patient = this.patients.filter(patient =>
-        patient && patient.id.includes(patient_id)
-      )[0];
-      return new BasicInformationAboutPatientVO(
-        patient.firstname,
-        patient.lastname,
-        patient.address,
-        patient.age
-      );
-    }catch (error){
-      throw new BusinessException(
-        ErrorCodes.PATIENT_NOT_FOUND,
-        `Patient doesn't exist`,
-        [],
-      )
-    }
+    const patient = this.patients.filter(patient =>
+      patient && patient.id.includes(patient_id)
+    )[0];
+    return new BasicInformationAboutPatientVO(
+      patient.firstname,
+      patient.lastname,
+      patient.address,
+      patient.age
+    );
   }
 }
