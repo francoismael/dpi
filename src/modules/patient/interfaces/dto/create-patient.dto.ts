@@ -6,4 +6,7 @@ export class CreatePatientDto {
   birthDate: Date;
   gender: GENDER;
   address: string;
+  phone: string;
+  mail: string;
+  profession: string;
 }
