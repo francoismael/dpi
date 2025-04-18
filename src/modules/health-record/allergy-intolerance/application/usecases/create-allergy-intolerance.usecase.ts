@@ -1,8 +1,8 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { v4 } from 'uuid';
-import { AllergyIntolerance } from '../../domain/entities/allergy-intollerence';
-import { AllergyIntoleranceRepository } from '../ports/allergy-intollerence.repository.interface';
-import { ALLERGY_INTOLERANCE_REPOSITORY } from '../ports/allergy-intollerence.repository.token.ts';
+import { AllergyIntolerance } from '../../domain/entities/allergy-intolerence';
+import { AllergyIntoleranceRepository } from '../ports/allergy-intolerence.repository.interface';
+import { ALLERGY_INTOLERANCE_REPOSITORY } from '../ports/allergy-intolerence.repository.token.ts';
 import { BusinessException } from '../../../../../core/exceptions/business.exception';
 import { AllergyIntoleranceErrorCodes } from '../../domain/constants/allergy-intolerence-error.codes';
 import { CreateAllergyIntoleranceDto } from '../../interfaces/dto/create-allergy-intolerance.dto';

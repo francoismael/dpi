@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PatientModule } from './modules/patient/patient.module';
 import { EncounterModule } from './modules/health-record/encounter/encounter.module';
-import { AllergyIntoleranceModule } from './modules/health-record/allergy-intolerance/allergy-intollerence.module'; // Ajoute cette ligne
+import { AllergyIntoleranceModule } from './modules/health-record/allergy-intolerance/allergy-intolerence.module'; 
 
 @Module({
   imports: [
